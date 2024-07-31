@@ -1,60 +1,35 @@
-import React, { useState, useEffect } from "react";
-import Button from "./components/Button";
-import ContactForm from "./components/ContactForm";
-import ContactInfo from "./components/ContactInfo";
-import Socials from "./components/Socials";
-export default function App() {
-  const [content, setContent] = useState(null);
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
-  async function fetchData() {
-    try {
-      const response = await fetch('./content.json');
-      const data = await response.json();
-      setContent(data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
+function App() {
+  const [count, setCount] = useState(0)
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  // const socials=content[3].map(picture=>{
-  //   return 
-  // })
   return (
-    <main>
-      {content && (
-        <div className="flex">
-          <div className="w-3/5">
-          <ContactForm 
-          title={content[0].title}
-          subtitle={content[0].subtitle}
-          name={content[0]["name-input"]}
-          mail={content[0]["mail-input"]}
-          textarea={content[0]["textarea"]}
-          />
-          </div>
-          <div className="w-2/5">
-          <ContactInfo
-          title={content[1].title}
-          address={content[1]["sub-content"]['address']["title"]}
-          addressBody={content[1]["sub-content"]['address']["content"]}
-          addressPicture={content[1]["sub-content"]['address']["picture"]}
-          phone={content[1]["sub-content"]['phone']["title"]}
-          phoneBody={content[1]["sub-content"]['phone']["content"]}
-          phonePicture={content[1]["sub-content"]['phone']["picture"]}
-          mail={content[1]["sub-content"]['Email']["title"]}
-          emailBody={content[1]["sub-content"]['Email']["content"]}
-          emailPicture={content[1]["sub-content"]['Email']["picture"]}
-          />
-          </div>
-        </div>
-      )}
-      <div className="flex flex-row gap-5 justify-center mb-7">
-
+    <>
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
       </div>
-    </main>
-  );
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </>
+  )
 }
+
+export default App
