@@ -1,0 +1,18 @@
+{
+  "default_branch": "master",
+  "branches": [
+    "ft/contact",
+    "master",
+    "origin"
+  ],
+  "parent": {
+    "ft/contact": "master",
+    "master": null,
+    "origin": "master"
+  },
+  "order": [
+    "master",
+    "ft/contact",
+    "origin"
+  ]
+}
