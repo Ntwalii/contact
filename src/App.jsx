@@ -52,9 +52,7 @@ export default function App() {
           </div>
         </div>
       )}
-      <div className="flex flex-row gap-5 justify-center mb-7">
-
-      </div>
+  <Socials />
     </main>
   );
 }
